@@ -38,7 +38,7 @@ formLogin.addEventListener('submit', async (evento) => {
         mensagem.textContent = 'Login realizado com sucesso!';
 
         // Redireciona para a página principal
-        window.location.href = 'pecas.html';
+        window.location.href = 'principal.html';
 
     } catch (erro) {
         console.error('Erro ao realizar login:', erro);

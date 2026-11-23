@@ -11,11 +11,12 @@
   },
   "name": "revisao_saep",
   "version": "1.0.0",
-  "description": "O sistema permite:\r <!-- Coloque aqui um breve relato sobre a descrição e as funcionalidades com o API -->\r # Tecnologias utilizadas:\r <!-- Descreva as tecnologias que foram utilizadas, pacotes, tecnologias -->\r # Instalação",
+  "description": "Sistema de agendamento para oficina mecânica (clientes, veículos e agendamentos) com login JWT e CPF criptografado.",
   "main": "db.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

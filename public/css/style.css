@@ -1,13 +1,215 @@
-body{
-    height: 1000px;
-
+/* ====== Oficina Mecânica — estilo compartilhado ====== */
+:root {
+    --grafite: #23272c;
+    --grafite-2: #343a41;
+    --papel: #f4f5f6;
+    --branco: #ffffff;
+    --linha: #d9dce0;
+    --texto: #1f2328;
+    --texto-suave: #5b636c;
+    --amarelo: #f2b705;
+    --amarelo-escuro: #c99600;
+    --erro: #b3261e;
+    --ok: #1d7a3a;
 }
 
-form{
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background: var(--papel);
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+h1, h2, h3 { margin: 0 0 .5rem; line-height: 1.25; }
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 2px; }
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+    background: var(--grafite);
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem 1.5rem;
+    padding: .75rem 1.5rem;
+    border-bottom: 4px solid var(--amarelo);
+}
+
+.cabecalho .marca { font-size: 1.15rem; font-weight: 700; margin: 0; }
+
+.cabecalho nav { display: flex; flex-wrap: wrap; gap: .25rem; flex: 1; }
+
+.cabecalho nav a {
+    text-decoration: none;
+    padding: .4rem .8rem;
+    border-radius: 4px;
+    color: #d6dade;
+}
+
+.cabecalho nav a:hover { background: var(--grafite-2); color: #fff; }
+.cabecalho nav a.ativo { background: var(--amarelo); color: var(--grafite); font-weight: 600; }
+
+.usuario-logado { display: flex; align-items: center; gap: .75rem; font-size: .95rem; }
+
+/* ---------- Layout ---------- */
+.container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+
+.titulo-pagina {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.titulo-pagina p { margin: 0; color: var(--texto-suave); }
+
+/* ---------- Botões ---------- */
+button, .botao {
+    font: inherit;
+    cursor: pointer;
+    border: 1px solid var(--grafite);
+    background: var(--branco);
+    color: var(--grafite);
+    padding: .45rem .9rem;
+    border-radius: 4px;
+}
+
+button:hover { background: #eceef0; }
+
+button.primario { background: var(--amarelo); border-color: var(--amarelo-escuro); font-weight: 600; }
+button.primario:hover { background: #ffc61f; }
+
+.cabecalho button { background: transparent; color: #fff; border-color: #6a727b; }
+.cabecalho button:hover { background: var(--grafite-2); }
+
+button.pequeno { padding: .2rem .6rem; font-size: .9rem; }
+
+/* ---------- Formulários ---------- */
+.painel {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.grade-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+}
+
+.campo { display: flex; flex-direction: column; gap: .25rem; }
+.campo.largo { grid-column: 1 / -1; }
+.campo label { font-weight: 600; font-size: .92rem; }
+
+input, select, textarea {
+    font: inherit;
+    padding: .5rem .6rem;
+    border: 1px solid #aab0b7;
+    border-radius: 4px;
+    background: #fff;
+    color: var(--texto);
+    width: 100%;
+}
+
+.acoes-form { display: flex; gap: .5rem; margin-top: 1rem; }
+
+.busca { display: flex; flex-wrap: wrap; gap: .5rem; }
+.busca input { flex: 1; min-width: 220px; width: auto; }
+
+[hidden] { display: none !important; }
+
+/* ---------- Mensagens ---------- */
+.mensagem { min-height: 1.4rem; margin: 0 0 1rem; font-weight: 600; }
+.mensagem.erro { color: var(--erro); }
+.mensagem.sucesso { color: var(--ok); }
+
+/* ---------- Tabelas ---------- */
+.tabela-container {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td { text-align: left; padding: .65rem .85rem; border-bottom: 1px solid var(--linha); vertical-align: top; }
+
+th { background: #eceef0; font-size: .92rem; }
+
+tbody tr:last-child td { border-bottom: 0; }
+
+td small { display: block; color: var(--texto-suave); }
+
+.vazio { text-align: center; color: var(--texto-suave); padding: 1.5rem; }
+
+.status { display: inline-block; padding: .1rem .55rem; border-radius: 999px; font-size: .85rem; border: 1px solid var(--linha); background: #eceef0; }
+.status.AGENDADO { background: #fff3c4; border-color: var(--amarelo-escuro); }
+.status.EM_ANDAMENTO { background: #dbeafe; border-color: #93b4e6; }
+.status.CONCLUIDO { background: #d7f0df; border-color: #7cc592; }
+.status.CANCELADO { background: #f6d9d6; border-color: #dd9b95; }
+
+/* ---------- Tela principal ---------- */
+.boas-vindas { margin-bottom: 1.5rem; }
+.boas-vindas h2 { font-size: 1.6rem; }
+.boas-vindas p { color: var(--texto-suave); margin: 0; }
+
+.atalhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.atalho {
+    display: block;
+    text-decoration: none;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-left: 6px solid var(--amarelo);
+    border-radius: 6px;
+    padding: 1.1rem 1.25rem;
+}
+
+.atalho:hover { border-color: var(--grafite); border-left-color: var(--amarelo); background: #fffdf3; }
+.atalho strong { display: block; font-size: 1.1rem; }
+.atalho span { color: var(--texto-suave); font-size: .95rem; }
+
+/* ---------- Login ---------- */
+body.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--grafite);
+}
+
+body.login-page form {
+    width: min(92vw, 380px);
+    background: var(--branco);
+    border-top: 6px solid var(--amarelo);
+    border-radius: 6px;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: 20px;
+    gap: 1rem;
+}
+
+body.login-page h1 { font-size: 1.4rem; margin: 0; }
+body.login-page form div { display: flex; flex-direction: column; gap: .25rem; }
+body.login-page label { font-weight: 600; }
+body.login-page #mensagem { margin: 0; min-height: 1.4rem; color: var(--erro); font-weight: 600; }
+body.login-page button { background: var(--amarelo); border-color: var(--amarelo-escuro); font-weight: 600; padding: .6rem; }
+
+@media (max-width: 600px) {
+    .container { padding: 1rem; }
+    .cabecalho { padding: .75rem 1rem; }
 }
