@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6",
+    "nodemon": "^3.1.14"
+  },
+  "name": "revisao_saep",
+  "version": "1.0.0",
+  "description": "O sistema permite:\r <!-- Coloque aqui um breve relato sobre a descrição e as funcionalidades com o API -->\r # Tecnologias utilizadas:\r <!-- Descreva as tecnologias que foram utilizadas, pacotes, tecnologias -->\r # Instalação",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josuefigueiredo-lgtm/treino_SAEP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/josuefigueiredo-lgtm/treino_SAEP/issues"
+  },
+  "homepage": "https://github.com/josuefigueiredo-lgtm/treino_SAEP#readme"
+}

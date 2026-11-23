@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos - Oficina Mecânica</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="cabecalho"></header>
+
+    <main class="container">
+
+        <section class="titulo-pagina">
+            <div>
+                <h2>Veículos</h2>
+                <p>Todo veículo precisa estar associado a um cliente.</p>
+            </div>
+            <button type="button" id="btnNovoVeiculo" class="primario">Novo veículo</button>
+        </section>
+
+        <p id="mensagem" class="mensagem" role="status"></p>
+
+        <section class="painel" id="painelForm" hidden>
+            <h3 id="tituloForm">Novo veículo</h3>
+            <form id="formVeiculo">
+                <input type="hidden" id="idVeiculo">
+                <div class="grade-form">
+                    <div class="campo">
+                        <label for="placa">Placa</label>
+                        <input type="text" id="placa" maxlength="8" placeholder="ABC1D23" required>
+                    </div>
+                    <div class="campo">
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" maxlength="50" required>
+                    </div>
+                    <div class="campo">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" id="modelo" maxlength="50" required>
+                    </div>
+                    <div class="campo">
+                        <label for="ano">Ano</label>
+                        <input type="number" id="ano" min="1950" max="2100" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cor">Cor</label>
+                        <input type="text" id="cor" maxlength="30">
+                    </div>
+                    <div class="campo">
+                        <label for="idCliente">Cliente</label>
+                        <select id="idCliente" required>
+                            <option value="">Selecione o cliente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="acoes-form">
+                    <button type="submit" class="primario">Salvar veículo</button>
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Ano</th>
+                        <th>Cor</th>
+                        <th>Cliente</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaVeiculos"></tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/veiculos.js"></script>
+
+</body>
+</html>

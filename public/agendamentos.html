@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos - Oficina Mecânica</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="cabecalho"></header>
+
+    <main class="container">
+
+        <section class="titulo-pagina">
+            <div>
+                <h2>Agendamentos</h2>
+                <p>Ordenados pela data do atendimento.</p>
+            </div>
+            <button type="button" id="btnNovoAgendamento" class="primario">Novo agendamento</button>
+        </section>
+
+        <p id="mensagem" class="mensagem" role="status"></p>
+
+        <section class="painel" id="painelNovo" hidden>
+            <h3>Novo agendamento</h3>
+            <form id="formAgendamento">
+                <div class="grade-form">
+                    <div class="campo">
+                        <label for="idVeiculo">Veículo</label>
+                        <select id="idVeiculo" required>
+                            <option value="">Selecione o veículo</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="idServico">Serviço</label>
+                        <select id="idServico" required>
+                            <option value="">Selecione o serviço</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="dataAgendamento">Data e hora</label>
+                        <input type="datetime-local" id="dataAgendamento" required>
+                    </div>
+                    <div class="campo largo">
+                        <label for="observacoes">Observações</label>
+                        <input type="text" id="observacoes" maxlength="255">
+                    </div>
+                </div>
+                <div class="acoes-form">
+                    <button type="submit" class="primario">Salvar agendamento</button>
+                    <button type="button" id="btnCancelarNovo">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="painel" id="painelData" hidden>
+            <h3>Alterar data do agendamento</h3>
+            <p id="descricaoData"></p>
+            <form id="formData">
+                <input type="hidden" id="idAgendamento">
+                <div class="grade-form">
+                    <div class="campo">
+                        <label for="novaData">Nova data e hora</label>
+                        <input type="datetime-local" id="novaData" required>
+                    </div>
+                </div>
+                <div class="acoes-form">
+                    <button type="submit" class="primario">Salvar nova data</button>
+                    <button type="button" id="btnCancelarData">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data e hora</th>
+                        <th>Cliente</th>
+                        <th>Veículo</th>
+                        <th>Serviço</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaAgendamentos"></tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/agendamentos.js"></script>
+
+</body>
+</html>

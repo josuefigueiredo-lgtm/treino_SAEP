@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Peças - Oficina Mecânica</title>
+
+    <link rel="stylesheet" href="css/pecas.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>Oficina Mecânica</h1>
+
+        <nav>
+            <a href="dashboard.html">Início</a>
+            <a href="pecas.html" class="ativo">Peças</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="veiculos.html">Veículos</a>
+            <a href="agendamentos.html">Agendamentos</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="titulo-pagina">
+            <div>
+                <h2>Estoque de Peças</h2>
+                <p>Consulte e gerencie as peças disponíveis na oficina.</p>
+            </div>
+
+            <button id="btnNovaPeca">+ Nova Peça</button>
+        </section>
+
+        <section class="resumo">
+
+            <div class="card">
+                <h3>Total de Peças</h3>
+                <p id="totalPecas">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Disponíveis</h3>
+                <p id="pecasDisponiveis">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Estoque Baixo</h3>
+                <p id="estoqueBaixo">0</p>
+            </div>
+
+        </section>
+
+        <section class="filtros">
+
+            <input
+                type="text"
+                id="pesquisa"
+                placeholder="Pesquisar peça pelo nome..."
+            >
+
+            <select id="filtroCategoria">
+                <option value="">Todas as categorias</option>
+                <option value="Motor">Motor</option>
+                <option value="Freios">Freios</option>
+                <option value="Suspensão">Suspensão</option>
+                <option value="Elétrica">Elétrica</option>
+            </select>
+
+        </section>
+
+        <section class="tabela-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Peça</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="listaPecas">
+                    <!-- Peças carregadas pelo JavaScript -->
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="js/pecas.js"></script>
+
+</body>
+</html>
